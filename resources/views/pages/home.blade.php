@@ -10,9 +10,9 @@
                 <div class="card-header">CRM</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (true)
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('success') }}
                         </div>
                         You are logged in!
                     @else
