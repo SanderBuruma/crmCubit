@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages/home');
 });
+Route::resource('customers', 'CustomersController');
 
 Auth::routes();
 
