@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('pages/home');
 });
 Route::resource('customers', 'CustomersController');
+Route::resource('products', 'ProductsController');
 
 Auth::routes();
 

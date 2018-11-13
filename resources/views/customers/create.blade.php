@@ -35,10 +35,10 @@
 			{{ Form::label('email', 'E-Mail:*') }}
 			{{ Form::email('email', null, array('class' => 'form-control','required'=> '','maxlength'=>'255')) }}
 			<br>
-			{{ Form::label('balance:', 'Balance:*') }}
+			{{ Form::label('balance', 'Balance:*') }}
 			{{ Form::text('balance', null, array('class' => 'form-control','required'=> '','maxlength'=>'255')) }}
 			<br>
-			{{ Form::submit('Insert Customer', array('class' => 'btn btn-success btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}
+			{{ Form::submit('Create Customer', array('class' => 'btn btn-success btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}
 		{!! Form::close() !!}
 	</div>
 </div>

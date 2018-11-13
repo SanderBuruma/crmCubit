@@ -44,6 +44,9 @@
 							<a class="dropdown-item" href="{{ route('customers.index') }}">
 								{{ __('Customers') }}
 							</a>
+							<a class="dropdown-item" href="{{ route('products.index') }}">
+								{{ __('Products') }}
+							</a>
 						</div>
 					</li>
 				@endguest

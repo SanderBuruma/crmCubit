@@ -49,7 +49,7 @@ class CustomersController extends Controller
 		'address' 				=> 'required',
 		'city' 		    		=> 'required',
 		'phone1' 					=> 'required',
-		'email' 					=> 'required|email',
+		'email' 					=> 'required|email|unique:customers,email',
 		'balance' 				=> 'required'
 	]);
 
@@ -111,7 +111,7 @@ class CustomersController extends Controller
 			'address' 				=> 'required',
 			'city' 		    		=> 'required',
 			'phone1' 					=> 'required',
-			'email' 					=> 'required|email',
+			'email' 					=> "required|email|unique:customers,email,$id",
 			'balance' 				=> 'required'
 		]);
 
