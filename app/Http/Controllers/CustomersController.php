@@ -139,8 +139,14 @@ class CustomersController extends Controller
 	 * @param  \App\Customers  $customers
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Customers $customers)
+	public function destroy($id)
 	{
-			//
+		$customer = Customers::find($id);
+		$customerName = "$customer->fname $customer->lname";
+		$customer->delete();
+
+		Session::flash('success', "$customerName was successfully deleted!");
+
+		return redirect()->route('customers.index');
 	}
 }
