@@ -10,11 +10,6 @@
 				<div class="card-header">CRM</div>
 
 				<div class="card-body">
-					@if(session('sucess'))
-					<div class="alert alert-success" role="alert">
-						{{ session('success') }}
-					</div>
-					@endif
 
 					@if (Auth::check())
 						You are logged in!
