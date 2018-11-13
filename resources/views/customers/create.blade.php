@@ -1,6 +1,6 @@
 @extends('pages/home')
 
-@section('title', '| Customers | Create')
+@section('title', '| Insert Customer')
 @section('styles')
 
 {!! Html::style('css/parsley.css') !!}
@@ -38,7 +38,7 @@
 			{{ Form::label('balance:', 'Balance:*') }}
 			{{ Form::text('balance', null, array('class' => 'form-control','required'=> '','maxlength'=>'255')) }}
 			<br>
-			{{ Form::submit('Create Customer', array('class' => 'btn btn-success btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}
+			{{ Form::submit('Insert Customer', array('class' => 'btn btn-success btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}
 		{!! Form::close() !!}
 	</div>
 </div>

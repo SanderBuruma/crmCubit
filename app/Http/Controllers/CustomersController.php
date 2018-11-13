@@ -66,7 +66,7 @@ class CustomersController extends Controller
 
 	$customer->save();
 
-	Session::flash('success', "Customer created");
+	Session::flash('success', "Customer $customer->fname $customer->lname inserted into database");
 
 	return redirect()->route('customers.index');
 
@@ -89,9 +89,10 @@ class CustomersController extends Controller
 	 * @param  \App\Customers  $customers
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(Customers $customers)
+	public function edit($id)
 	{
-			//
+		$customer = Customers::find($id);
+		return view('customers.edit')->withCustomer($customer);
 	}
 
 	/**
@@ -101,9 +102,34 @@ class CustomersController extends Controller
 	 * @param  \App\Customers  $customers
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Customers $customers)
+	public function update(Request $request, $id)
 	{
-			//
+		$this->validate($request, [
+			'fname' 					=> 'required',
+			'lname' 					=> 'required',
+			'address' 				=> 'required',
+			'city' 		    		=> 'required',
+			'phone1' 					=> 'required',
+			'email' 					=> 'required|email',
+			'balance' 				=> 'required'
+		]);
+
+		$customer = Customers::find($id);
+		
+		$customer->fname = $request->fname;
+		$customer->lname = $request->lname;
+		$customer->address = $request->address;
+		$customer->city = $request->city;
+		$customer->phone1 = $request->phone1;
+		$customer->phone2 = $request->phone2;
+		$customer->email = $request->email;
+		$customer->balance = $request->balance;
+
+		$customer->save();
+
+		Session::flash('success', "Customer $customer->fname $customer->lname changed in the database");
+
+		return redirect()->route('customers.index');
 	}
 
 	/**
