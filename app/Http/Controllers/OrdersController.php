@@ -41,7 +41,23 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+			$this->validate($request, [
+				'customers_id' 			=> 'exists:customers,id',
+				'orders_id' 			=> 'exists:orders,id',
+				'quantity' 				=> 'numeric|min:1'
+			]);
+	
+			$order = new Orders;
+			
+			$order->customers_id = $request->customers_id;
+			$order->products_id = $request->products_id;
+			$order->quantity = $request->quantity;
+	
+			$order->save();
+	
+			Session::flash('success', "Order inserted into database");
+	
+			return redirect()->route('orders.index');  
     }
 
     /**

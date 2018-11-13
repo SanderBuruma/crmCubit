@@ -14,15 +14,15 @@
 		<h1>Create New Order</h1>
 		<hr>
 		{!! Form::open(['route' => 'orders.store','data-parsley-validate' => '', 'method' => 'POST']) !!}
-			{{ Form::label('customer_id', 'Customer:*') }}
-			<select name="customer_id" class="form-control">
+			{{ Form::label('customers_id', 'Customer:*') }}
+			<select name="customers_id" class="form-control">
 				@foreach($customers as $customer)
 					<option value="{{ $customer->id }}">{{$customer->id}} - {{$customer->fname}} {{$customer->lname}}</option>
 				@endforeach
 			</select> 
 			<br>
-			{{ Form::label('product_id', 'Product:*') }}
-			<select name="product_id" class="form-control">
+			{{ Form::label('products_id', 'Product:*') }}
+			<select name="products_id" class="form-control">
 				@foreach($products as $product)
 				<option value="{{ $product->id }}">{{$product->id}} - {{$product->name}} - €{{$product->price}}</option>
 				@endforeach
