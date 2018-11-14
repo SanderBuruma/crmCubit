@@ -25,6 +25,7 @@
 				<th>Customer & ID</th>
 				<th>Product & ID</th>
 				<th>Quantity</th>
+				<th>Sum Total</th>
 				<th>Created</th>
 				<th></th>
 			</thead>
@@ -37,6 +38,7 @@
 						<th>{{ $order->customers->fname }} - {{ $order->customers->id }}</th>
 						<td>{{ $order->products->name }} - {{ $order->products->id }}</td>
 						<td>{{ $order->quantity }}</td>
+						<td>€{{ $order->products->price*$order->quantity }},-</td>
 						<td>{{date('M j, Y', strtotime( $order->created_at ))}}</td>
 						<td><a href="{{ route('orders.edit', $order->id) }}"><i class="fas fa-pencil-alt"></i></a> <a href="{{ route('orders.destroy', $order->id) }}"><i class="fas fa-trash-alt text-danger"></i></a></td>
 					</tr>
