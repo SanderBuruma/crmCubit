@@ -8,6 +8,10 @@ use Session;
 
 class ProductsController extends Controller
 {
+	public function __consruct()
+	{
+			$this->middleware('auth');
+	}
     /**
      * Display a listing of the resource.
      *
