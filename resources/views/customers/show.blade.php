@@ -1,10 +1,6 @@
 @extends('pages/home')
 
-@section('title', '| Insert Customer')
-@section('styles')
-
-
-@endsection
+@section('title', "| Show $customer->fname $customer->lname")
 
 @section('content')
 
@@ -39,8 +35,24 @@
 						<td>€{{ $customer->balance }},-</td>
 					</tr>
 					<tr>
+<?php 
+//prepare $totalExpenses
+$totalExpenses = 0;
+foreach($customer->orders as $order){
+	$totalExpenses += $order->products->price * $order->quantity;
+}
+
+?>
+						<td>TotalExpenses</td>
+						<td>€{{ $totalExpenses }},-</td>
+					</tr>
+					<tr>
+						<td>Credit</td>
+						<td>€{{ $customer->balance-$totalExpenses }},-</td>
+					</tr>
+					<tr>
 						<td>Created</td>
-						<td>{{date('F nS, Y - G:i', strtotime( $customer->created_at ))}}</td>
+						<td>{{ date('F nS, Y - G:i', strtotime( $customer->created_at )) }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -52,7 +64,7 @@
 	<div class="col-md-8 offset-md-2">
 		<div class="card">
 			<div class="card-header"><h1>Orders</h1></div>
-			<table class="table">
+			<table class="table table-hover">
 				<thead>
 					<th>ID</th>
 					<th>Product & ID</th>
@@ -67,7 +79,7 @@
 							<td>{{ $order->products->name }} - {{ $order->products->id }}</td>
 							<td>{{ $order->quantity }}</td>
 							<td>€{{ $order->products->price * $order->quantity }},-</td>
-							<td>{{date('M j, Y', strtotime( $order->created_at ))}}</td>
+							<td>{{date('M j, Y - G:i', strtotime( $order->created_at ))}}</td>
 						</tr>
 					@endforeach
 				</tbody>
@@ -77,14 +89,9 @@
 	<br>
 	{!! Form::open(['route' => ['customers.destroy', $customer->id], 'method' => 'DELETE']) !!}
 				
-	{!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block col-md-2 offset-md-5']) !!}
+	{!! Form::submit('Delete Customer', ['class'=>'btn btn-danger btn-block col-md-2 offset-md-5']) !!}
 	
 	{!! Form::close() !!}
 </div>
-
-@endsection
-
-@section('scripts')
-
 
 @endsection

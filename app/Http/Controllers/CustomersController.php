@@ -80,8 +80,8 @@ class CustomersController extends Controller
 	 */
 	public function show($id)
 	{
-			$customer = Customers::find($id);
-			return view ('customers.show')->withCustomer($customer);
+		$customer = Customers::find($id);
+		return view ('customers.show')->withCustomer($customer);
 	}
 
 	/**
