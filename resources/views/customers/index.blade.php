@@ -49,7 +49,9 @@
 						<td>{{$customer->email}}</td>
 						<td>€{{$customer->balance}},-</td>
 						<td>{{date('M j, Y', strtotime($customer->created_at))}}</td>
-						<td><a href="{{ route('customers.show', $customer->id) }}" class="btn btn-secondary btn-sm">View</a><a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-secondary btn-sm btn-edit">Edit</a></td>
+						<td>
+							<a href="{{ route('customers.show', $customer->id) }}"><i class="fas fa-eye"></i></a> 
+							<a href="{{ route('customers.edit', $customer->id) }}"><i class="fas fa-pencil-alt"></i></a>
 					</tr>
 
 				@endforeach
