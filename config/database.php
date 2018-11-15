@@ -58,7 +58,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '    postgres://tpofzwautfsbjh:640dacda5923dc17bf363007a163cf2d5bb1a0baf6a885642f5741ff4e47127e@ec2-54-246-86-167.eu-west-1.compute.amazonaws.com:5432/d4uj8lida0k9hh'),
+            'host' => env('DB_HOST', 'ec2-54-246-86-167.eu-west-1.compute.amazonaws.com'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'd4uj8lida0k9hh'),
             'username' => env('DB_USERNAME', 'tpofzwautfsbjh'),
